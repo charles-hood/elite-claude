@@ -78,6 +78,21 @@
                 display: none;
             }
         }
+        @media (max-width: 640px) {
+            #agentsList > div {
+                padding-bottom: 0.25rem;
+                margin-bottom: 0.25rem;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            #agentsList > div:last-child {
+                margin-bottom: 0;
+                border-bottom: none;
+            }
+            #agentsList > div > div {
+                font-size: 0.875rem; /* 14px */
+                line-height: 1.25rem; /* 20px */
+            }
+        }
     </style>
 </head>
 <body class="flex flex-col h-screen">
@@ -86,9 +101,11 @@
             <img src="elite-banner-800x150-2.jpg" alt="Elite Realtors LLC" class="h-12">
         </div>
         <div class="absolute left-1/2 transform -translate-x-1/2 text-center header-content">
-            <a href="mailto:info@eliterealtorsllc.com" class="text-blue-600 hover:underline">info@eliterealtorsllc.com</a>
-            <span class="mx-2 desktop-only">|</span>
-            <a href="tel:+17069374663" class="text-blue-600 hover:underline desktop-only">706-937-4663</a>
+            <div class="bg-gray-100 rounded-full px-4 py-2 shadow-sm">
+                <a href="mailto:info@eliterealtorsllc.com" class="playfair text-gray-700 hover:text-blue-600 transition duration-300">info@eliterealtorsllc.com</a>
+                <span class="mx-2 text-gray-400">•</span>
+                <a href="tel:+17069374663" class="playfair text-gray-700 hover:text-blue-600 transition duration-300">706-937-4663</a>
+            </div>
         </div>
         <button id="menuBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-2xl">
             <i class="fas fa-bars"></i>
@@ -195,7 +212,7 @@
 
         function createAgentElement(agent) {
             const agentDiv = document.createElement('div');
-            agentDiv.className = 'border-b pb-2 mb-2 flex flex-wrap justify-between items-center';
+            agentDiv.className = 'flex flex-wrap justify-between items-center';
             
             if (window.innerWidth <= 640) { // Mobile view
                 agentDiv.innerHTML = `
@@ -206,7 +223,7 @@
                         <a href="tel:${agent.phone.replace(/\D/g,'')}" class="text-blue-600 hover:underline">${agent.phone}</a>
                     </div>
                 `;
-            } else { // Desktop view
+            } else { // Desktop view (unchanged)
                 agentDiv.innerHTML = `
                     <div class="w-full sm:w-1/3 font-bold">${agent.name}</div>
                     <div class="w-full sm:w-1/3 text-center">
