@@ -282,7 +282,7 @@
             agentDiv.className = 'flex flex-wrap justify-between items-center';
 
             const nameElement = document.createElement('div');
-            nameElement.className = 'w-3/5 cursor-pointer text-blue-600 hover:underline transition duration-300';
+            nameElement.className = 'w-3/5 cursor-pointer text-blue-600 hover:underline transition duration-300 whitespace-nowrap';
             nameElement.textContent = agent.name;
             nameElement.onclick = function() {
                 showAgentDetails(agent);
