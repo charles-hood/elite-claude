@@ -313,7 +313,7 @@
 
         function showAgentDetails(agent) {
             agentDetail.innerHTML = `
-                <img src="${agent.image}" alt="${agent.name}" class="w-32 h-32 rounded-full mb-4">
+                <img loading="lazy" src="${agent.image}" alt="${agent.name}" class="w-32 h-32 rounded-full mb-4">
                 <h2 class="text-xl font-bold mb-2">${agent.name}</h2>
                 <p class="mb-2"><a href="mailto:${agent.email}" class="text-blue-600 hover:underline transition duration-300">${agent.email}</a></p>
                 <p class="mb-4"><a href="tel:${agent.phone.replace(/\D/g,'')}" class="text-blue-600 hover:underline transition duration-300">${agent.phone}</a></p>
